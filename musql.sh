@@ -40,7 +40,7 @@ CHECK_ROOT
  systemctl start mysqld 
  VALIDATE $? "starting mysql Server"
 
- mysql_secure_installation --set-root-pass ExpenseApp@1
+ mysql -h database.sanadevops.online -u root -pExpenseApp@1 -e 'show databases;'
  VALIDATE $? "setting the root password"
 
     
