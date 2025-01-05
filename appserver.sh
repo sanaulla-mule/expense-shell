@@ -44,7 +44,7 @@ VALIDATE $? "Installing the nodejs"
 id expense &>>$LOG_FILE_NAME
 if [ $? -ne 0 ]
 then
-  useradd expense
+  useradd expense &>>$LOG_FILE_NAME
   VALIDATE $? "adding expense user"
 else
   echo -e "expense user alredy exists....$Y SKIPPING $N"
@@ -60,6 +60,7 @@ rm -rf /app *
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 VALIDATE $? "unzip backend"
 
+cd /app
 npm install &>>$LOG_FILE_NAME
 VALIDATE $? "npm installing" 
 
