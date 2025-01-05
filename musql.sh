@@ -34,7 +34,7 @@ CHECK_ROOT
  dnf install mysql-server -y &>>$LOG_FILE_NAME
  VALIDATE $? "installing mysql Server"
 
- systemctl enabled mysqld 
+ systemctl enable mysqld 
  VALIDATE $? "Enabling mysql Server"
 
  systemctl start mysqld 
