@@ -58,9 +58,11 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 cd /app
 rm -rf /app *
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
+VALIDATE $? "unzip backend"
 
 npm install &>>$LOG_FILE_NAME
 VALIDATE $? "npm installing" 
+
 cp /home/ec2-user/expense-shell/backend.service /etc/systemd/system/backend.service
 
 dnf install mysql -y &>>$LOG_FILE_NAME
