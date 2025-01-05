@@ -16,7 +16,7 @@ then
         echo  -e "$2...$R Failure $N" 
         exit 1
 else 
-        echo " $2 .... $R SUCCESS $N" 
+        echo  -e " $2 .... $R SUCCESS $N" 
 fi
 }
 CHECK_ROOT(){
@@ -34,10 +34,10 @@ CHECK_ROOT
  dnf install mysql-server -y &>>$LOG_FILE_NAME
  VALIDATE $? "installing mysql Server"
 
- systemctl enabled mysqlid 
- VALIDATE $? "Enabaling mysql Server"
+ systemctl enabled mysqld 
+ VALIDATE $? "Enabling mysql Server"
 
- systemctl start mysqlid 
+ systemctl start mysqld 
  VALIDATE $? "starting mysql Server"
 
  mysql_secure_installation --set-root-pass ExpenseApp@1
